@@ -1,0 +1,19 @@
+@font-face {
+    font-family: "Prox";
+    src: url(/fonts/prox/ProximaNova-Regular.otf) format("opentype");
+}
+
+@font-face {
+    font-family: "Prox Light";
+    src: url(/fonts/prox/ProximaNova-Light.otf) format("opentype");
+}
+
+@font-face {
+    font-family: "Prox Bold";
+    src: url(/fonts/prox/ProximaNova-Bold.otf) format("opentype");
+}
+
+@font-face {
+    font-family: "Prox Semi";
+    src: url(/fonts/prox/ProximaNova-Semibold.otf) format("opentype");
+}
