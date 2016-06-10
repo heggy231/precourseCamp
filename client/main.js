@@ -162,19 +162,18 @@ main.setMapShare = function setMapShare(id) {
   return alreadyShared;
 };
 
-main.animateBackgroundOnLoad = function animateBackground(){
-    $(".background.big").css('transform', 'translateX(0)');
-    $(".background.small").css('transform', 'translateX(0)');
-
-
-
-}
+function animateBackgroundOnLoad(){
+    $(".background.big").css('transform', 'translate3D(120px,0,0)');
+    $(".background.small").css('transform', 'translate3D(200px,0,0)');
+};
 
 $(document).ready(function() {
-    main.animateBackgroundOnLoad();
 
-  const { Observable } = window.Rx;
-  var CSRF_HEADER = 'X-CSRF-Token';
+    // if Home page animate background
+    if(challengeName === 'Home') animateBackgroundOnLoad();
+
+    const { Observable } = window.Rx;
+    var CSRF_HEADER = 'X-CSRF-Token';
 
   var setCSRFToken = function(securityToken) {
     jQuery.ajaxPrefilter(function(options, _, xhr) {
