@@ -1,0 +1,67 @@
+.home-container {
+  height: 100vh;
+  width: 100%;
+  background: url('../images/DevCircle.svg') no-repeat;
+  background-position: left 0 bottom 0;
+
+
+
+  .landing-heading {
+    font-size: 90px !important;
+    margin: 20px 0 0 20px;
+  }
+
+}
+
+.prinav {
+  position: absolute;
+  z-index: 9000;
+  top: calc(10vh );
+  left: 74vw;
+  width: 300px;
+  background: #fff;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transition: 125ms ease all;
+  transition: 125ms ease all;
+  will-change: transition;
+  overflow: hidden;
+}
+
+.background {
+  box-shadow: 0 15px 100px rgba(0, 0, 0, .075);
+}
+
+.background.big {
+  transform: translateX(-100vw);
+  -webkit-transition: .9s ease-in-out all;
+  transition: .9s ease-in-out all;
+  will-change: transition;
+  width: 9%;
+}
+
+.background.small{
+  width: 39%;
+  -webkit-transition: .6s ease-in-out all;
+  transition: .6s ease-in-out all;
+  transform: translateX(-100vw);
+}
+.background {
+  background-color: transparent;
+  box-shadow: 0 15px 100px rgba(0, 0, 0, .06);
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 6;
+}
+
+.line-bg {
+  border-right: 1px solid rgba(0, 0, 0, .1);
+  height: 100vh;
+  opacity: .4;
+  position: fixed;
+  z-index: 3
+}
+
+

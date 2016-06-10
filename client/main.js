@@ -1,5 +1,4 @@
 var main = window.main || {};
-
 main.mapShareKey = 'map-shares';
 
 main.ga = window.ga || function() {};
@@ -163,7 +162,16 @@ main.setMapShare = function setMapShare(id) {
   return alreadyShared;
 };
 
+main.animateBackgroundOnLoad = function animateBackground(){
+    $(".background.big").css('transform', 'translateX(0)');
+    $(".background.small").css('transform', 'translateX(0)');
+
+
+
+}
+
 $(document).ready(function() {
+    main.animateBackgroundOnLoad();
 
   const { Observable } = window.Rx;
   var CSRF_HEADER = 'X-CSRF-Token';
