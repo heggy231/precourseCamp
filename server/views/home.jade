@@ -2,14 +2,23 @@ extends layout
 block home
     section.home-container
         nav.prinav
-            a(href="section1.html").nav-item.none Section 1
-            a(href="section2.html").nav-item.none.animsition-link Section 2
+            a(href="login.html").nav-item.none
+                button.view-challenges Login
+            a(href="signup.html").nav-item.none.animsition-link
+                button.view-challenges Sign UP
         div.background.big(data-background-shown='false')
         div.background.small(data-background-shown='false')
-        div.line-bg.off-s-3
+        //div.line-bg.off-s-3
         .text-left
-            h1.landing-heading Dev <br> Mountain <br> <em> Pre Course </em>
-
+            h1.landing-heading  Dev <br> Mountain <br> <em> Pre Course </em>
+            p.landing-intro Everything you need to know to start  <br> <em> DevMountain </em>
+            button.view-challenges start pre-course
+                i.icon-right
+        .spacer
+        .text-left
+            p.landing-intro Not ready to start but interested in our program? Check out our <em> challenges </em>
+            button.view-challenges View Challenges
+                i.icon-right
 
      script.
          challengeName = 'Home'

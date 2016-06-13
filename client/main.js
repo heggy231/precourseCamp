@@ -165,7 +165,14 @@ main.setMapShare = function setMapShare(id) {
 function animateBackgroundOnLoad(){
     $(".background.big").css('transform', 'translate3D(120px,0,0)');
     $(".background.small").css('transform', 'translate3D(200px,0,0)');
-};
+    //$(".prinav").css('transform', 'translate3D(-20px,0,0)');
+
+
+
+
+
+
+}
 
 $(document).ready(function() {
 
