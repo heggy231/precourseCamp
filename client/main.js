@@ -167,14 +167,35 @@ function animateBackgroundOnLoad(){
     $(".background.small").css('transform', 'translate3D(200px,0,0)');
     //$(".prinav").css('transform', 'translate3D(-20px,0,0)');
 
+}
 
+function str_obj(str) {
+    str = str.split('; ');
+    var result = {};
+    for (var i = 0; i < str.length; i++) {
+        var cur = str[i].split('=');
+        result[cur[0]] = cur[1];
+    }
+    return result;
+}
 
-
+function handlePreCourseClick() {
+    var isAuthed = str_obj(document.cookie);
+    console.log($(this))
 
 
 }
 
+
 $(document).ready(function() {
+
+
+    // On view-challenges button do these things
+    $('.view-challenges' ).on('click',function(){
+        var data = $(this).data();
+        console.log(data.ga);
+        if(data) handlePreCourseClick();
+    });
 
     // if Home page animate background
     if(challengeName === 'Home') animateBackgroundOnLoad();
@@ -197,7 +218,7 @@ $(document).ready(function() {
       .unbind('error')
       .attr(
         'src',
-        'https://s3.amazonaws.com/freecodecamp/camper-image-placeholder.png'
+        'http://devmountain.s3.amazonaws.com/www/img/devmtn_logo_fordarkbg.png'
       );
   });
 
