@@ -1,11 +1,11 @@
 extends layout
 block home
     section.home-container
-        nav.prinav
-            a(href="login.html").nav-item.none
-                button.view-challenges Login
-            a(href="signup.html").nav-item.none.animsition-link
-                button.view-challenges Sign UP
+        //nav.prinav
+        //    a(href='/signin').nav-item.none
+        //        button.view-challenges Login
+        //    a(href="/signin").nav-item.none.animsition-link.signup-btn
+        //        button.view-challenges Sign UP
         div.background.big(data-background-shown='false')
         div.background.small(data-background-shown='false')
         //div.line-bg.off-s-3
@@ -19,6 +19,7 @@ block home
             p.landing-intro Not ready to start but interested in our program? Check out our <em> challenges </em>
             button.view-challenges View Challenges
                 i.icon-right
+
 
      script.
          challengeName = 'Home'

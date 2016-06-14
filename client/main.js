@@ -191,11 +191,11 @@ $(document).ready(function() {
 
 
     // On view-challenges button do these things
-    $('.view-challenges' ).on('click',function(){
-        var data = $(this).data();
-        console.log(data.ga);
-        if(data) handlePreCourseClick();
-    });
+    //$('.view-challenges' ).on('click',function(){
+    //    var data = $(this).data();
+    //    console.log(data.ga);
+    //    if(data) handlePreCourseClick();
+    //});
 
     // if Home page animate background
     if(challengeName === 'Home') animateBackgroundOnLoad();
@@ -241,6 +241,7 @@ $(document).ready(function() {
       window.username :
       '';
 
+      // todo we will need to update this to our facebook
     var link = 'https://www.facebook.com/dialog/feed?' +
       'app_id=1644598365767721' +
       '&display=page&' +
