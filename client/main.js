@@ -186,16 +186,27 @@ function handlePreCourseClick() {
 
 }
 
+function sendGaEvents(data) {
+    console.log(data)
+}
 
+function changeLocation(url){
+    location.replace(url);
+
+}
 $(document).ready(function() {
 
+    // GA and simple routing to handle clicks on home-page
 
-    // On view-challenges button do these things
-    //$('.view-challenges' ).on('click',function(){
-    //    var data = $(this).data();
-    //    console.log(data.ga);
-    //    if(data) handlePreCourseClick();
-    //});
+    $('.check-ga').on('click',function(){
+        var data = $(this).data();
+        if(data.ga === "view-challenges-home-page") {
+            sendGaEvents(data.ga);
+            changeLocation("/map");
+
+        }
+
+    });
 
     // if Home page animate background
     if(challengeName === 'Home') animateBackgroundOnLoad();

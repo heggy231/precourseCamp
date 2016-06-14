@@ -22,6 +22,26 @@
 }
 
 
+.dm-icon-black {
+    width:100px;
+    display:block;
+    height:30px;
+    /*background:black;*/
+    color:white;
+    text-decoration:none;
+
+}
+
+.dm-icon-black:before {
+    content: '';
+    background:url('http://devmountain-precoursecamp.s3.amazonaws.com/DevCircle-156x158.svg');
+    background-size:cover;
+    position:absolute;
+    width:30px;
+    height:30px;
+    margin-left:-20px;
+}
+
 .icon-close:before {
     content: "\e900"
 }
