@@ -38,7 +38,7 @@ module.exports = function(app) {
   app.use(router);
 
   function chat(req, res) {
-    res.redirect('https://gitter.im/FreeCodeCamp/FreeCodeCamp');
+    res.redirect('https://gitter.im/DevMountain/precourseCamp');
   }
 
   function terms(req, res) {

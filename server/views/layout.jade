@@ -3,10 +3,12 @@ html(lang='en')
   head
     include partials/meta
     include partials/stylesheets
-  body.top-and-bottom-margins
+  body
     include partials/scripts
     include partials/navbar
     include partials/flash
-    .container
+    block home
+    .container.main-layout-container
       block content
+
     include partials/footer

@@ -25,12 +25,11 @@ block content
                           i.fa.fa-linkedin
                           | Add my LinkedIn to my portfolio
         .spacer
-        h2.text-center Account Settings
-        .row
-          .col-xs-12
-            a.btn.btn-lg.btn-block.btn-primary.btn-link-social(href='/commit')
-                | Edit my pledge
-        .spacer
+        //h2.text-center Account Settings
+        //.row
+        //  .col-xs-12
+        //    a.btn.btn-lg.btn-block.btn-primary.btn-link-social(href='/commit')
+        //        | Edit my pledge
         h2.text-center Privacy Settings
         .row
           .col-xs-12.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3
@@ -59,17 +58,6 @@ block content
                 | Update my Email
           .row
             .col-xs-12.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3
-              .row
-                .col-xs-9
-                  p.large-p Send me announcement emails
-                    br
-                    | (we'll send you these every Thursday)
-                if (user.sendMonthlyEmail)
-                  .col-xs-3
-                    a.btn.btn-lg.btn-primary.btn-block.active.positive-20(href='/toggle-announcement-email-mode') On
-                else
-                  .col-xs-3
-                    a.btn.btn-lg.btn-primary.btn-block.positive-20(href='/toggle-announcement-email-mode') Off
 
               .row
                 .col-xs-9
@@ -83,17 +71,6 @@ block content
                   .col-xs-3
                     a.btn.btn-lg.btn-primary.btn-block.positive-20(href='/toggle-notification-email-mode') Off
 
-              .row
-                .col-xs-9
-                  p.large-p Send me Quincy's weekly email
-                    br
-                    | (with new articles every Tuesday)
-                if (user.sendQuincyEmail)
-                  .col-xs-3
-                    a.btn.btn-lg.btn-primary.btn-block.active.positive-20(href='/toggle-quincy-email-mode') On
-                else
-                  .col-xs-3
-                    a.btn.btn-lg.btn-primary.btn-block.positive-20(href='/toggle-quincy-email-mode') Off
         else
           .row
             .col-xs-12
@@ -105,32 +82,3 @@ block content
                 | Update my Email
 
         .spacer
-        h2.text-center Danger Zone
-        .row
-          .col-xs-12
-              a.btn.btn-lg.btn-block.btn-danger.btn-link-social.confirm-deletion
-                  | Delete my Free Code Camp account
-              script.
-                  $('.confirm-deletion').on("click", function () {
-                      $('#modal-dialog').modal('show');
-                  });
-          #modal-dialog.modal.animated.wobble
-              .modal-dialog
-                  .modal-content
-                      .modal-header
-                          a.close(href='#', data-dismiss='modal', aria-hidden='true') ×
-                          h3 You don't really want to delete your account, do you?
-                      .modal-body
-                          p This will really delete all your data, including all your progress and brownie points.
-                          p We won't be able to recover any of it for you later, even if you change your mind.
-                          p If there's something we could do better, send us an email instead and we'll do our best: &thinsp;
-                              a(href="mailto:team@freecodecamp.com") team@freecodecamp.com
-                              | .
-                      .modal-footer
-                          a.btn.btn-success.btn-block(href='#', data-dismiss='modal', aria-hidden='true')
-                              | Nevermind, I don't want to delete all of my progress
-                          .spacer
-                          form(action='/account/delete', method='POST')
-                              input(type='hidden', name='_csrf', value=_csrf)
-                              button.btn.btn-danger.btn-block(type='submit')
-                                  | I am 100% sure I want to delete my account and all of my progress

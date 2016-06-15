@@ -3,13 +3,18 @@
 @import "lib/ionicons/ionicons";
 @import "lib/animate.min.less";
 @import "lib/bootstrap/variables";
+@import "home";
 
-html,body,div,span,a,li,td,th {
-  font-family: 'Lato', sans-serif;
+html,body,div,td,th {
+  font-family: 'Prox', sans-serif;
+}
+
+a,span,button,li {
+  font-family: 'Prox-Light', sans-serif;
 }
 
 bold {
-  font-family: 'Lato-Bold', sans-serif;
+  font-family: 'Prox-Bold', sans-serif;
   font-weight: Bold;
 }
 
@@ -68,6 +73,7 @@ body.no-top-and-bottom-margins {
 }
 
 h1, h2 {
+  font-family: 'Prox-Bold';
   font-weight: 400;
 }
 
@@ -77,6 +83,10 @@ h1, h2, h3, h4, h5, h6, p, li {
   padding-bottom: 5px;
 }
 
+em {
+  font-style: normal;
+  color: #00DDFF;
+}
 // Alerts
 // -------------------------
 
@@ -164,7 +174,14 @@ ul {
 .completion-icon {
   font-size: 150px;
 }
-
+.curtain {
+  position: absolute;
+  height:100vh;
+  width:100%;
+  background: #ccc;
+  z-index: 999;
+  display: none;
+}
 .positive-15 {
   margin-top: 15px;
 }
@@ -296,7 +313,7 @@ ul {
     margin-right: 0px;
     white-space: nowrap;
   }
-  background-color: @brand-primary;
+  //background-color: @brand-primary;
   text-align: center;
 }
 .navbar {
@@ -340,7 +357,9 @@ li.avatar, li.avatar > a { padding:0; margin:0 }
 }
 
 .navbar {
-  background-color: @brand-primary;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.07);
+  background: #fff;
+  //background-color: @brand-primary;
 }
 
 a {
@@ -636,6 +655,9 @@ form.update-email .btn{
   border-top: 0;
 }
 
+.main-layout-container {
+  padding-top: 50px;
+}
 .challenge-list-header {
   background-color: @brand-primary;
   color: @gray-lighter;
@@ -854,10 +876,6 @@ div.CodeMirror-scroll {
 //.media ~ .media .media-body-wrapper:nth-child(odd) {
 //  background-color: #e5e5e5;
 //}
-
-.landing-heading {
-  font-size: 50px !important;
-}
 
 hr {
   border: 0;

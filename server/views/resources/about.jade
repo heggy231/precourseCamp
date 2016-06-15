@@ -1,48 +1,6 @@
 extends ../layout
 block content
-    .row
-        .col-xs-12.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-3
-            h2.text-center Statistics
-            hr
-            ul.population-table
-                li
-                    span.tag Established:&#9;
-                    span.text-primary #{daysRunning}
-                    | days ago
-                li.nowrap
-                    span.tag Completed:&#9;
-                    span.text-primary #{globalCompletedCount}
-                    | challenges
-                li.nowrap
-                    span.tag Donated:&#9;
-                    span.text-primary $850,000
-                    | in pro-bono code
-                li.nowrap
-                    span.tag Pledged:&#9;
-                    span.text-primary $#{globalPledgedAmount}
-                    | to nonprofits
-    .row
-        .col-xs-12.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-3
-            h2.text-center Certifications
-            hr
-            ul.population-table
-                li.nowrap
-                    span.tag Front End:&#9;
-                    span.text-primary #{frontEndCount}
-                    | earned
-                li.nowrap
-                    span.tag Data Viz:&#9;
-                    span.text-primary #{dataVisCount}
-                    | earned
-                li.nowrap
-                    span.tag Back End:&#9;
-                    span.text-primary #{backEndCount}
-                    | earned
-                li.nowrap
-                    span.tag All three:&#9;
-                    span.text-primary #{allThreeCount}
-                    | earned
-    .spacer
+
     .row
         .col-xs-12.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-3
             h2.text-center Links
@@ -57,57 +15,57 @@ block content
                     td.text-center
                         i.fa.fa-youtube
                     td
-                        a(href="//youtube.com/freecodecamp", target='_blank') Our YouTube channel
+                        a(href="//youtube.com/devmountain", target='_blank') Our YouTube channel
                 tr
                     td.text-center
                         i.fa.fa-github
                     td
-                        a(href="//github.com/freecodecamp", target='_blank') Our GitHub repository
+                        a(href="//github.com/devmountain", target='_blank') Our GitHub repository
                 tr
                     td.text-center
                         i.fa.fa-linkedin
                     td
-                        a(href="//www.linkedin.com/edu/school?id=166029", target='_blank') Our LinkedIn university page
+                        a(href="//www.linkedin.com/company/devmountain", target='_blank') Our LinkedIn page
                 tr
                     td.text-center
                         i.fa.fa-twitter
                     td
-                        a(href="//twitter.com/freecodecamp", target='_blank') Our Twitter feed
+                        a(href="//twitter.com/DevMtn", target='_blank') Our Twitter feed
                 tr
                     td.text-center
                         i.fa.fa-facebook
                     td
-                        a(href="//facebook.com/freecodecamp") Our Facebook page
+                        a(href="//facebook.com/DevMountain") Our Facebook page
                 tr
                     td.text-center
-                        i.fa.fa-reddit
+                        i.dm-icon-black
                     td
-                        a(href="//www.reddit.com/r/freecodecamp", target='_blank') Our Subreddit
+                        a(href="//devmounta.in/blog",target='_blank') Our Blog
+                        //todo fix the dm logo so it has more weight. I dont have enough time right now B.C
+
                 tr
                     td.text-center
                         i.fa.fa-lock
                     td
                         a(href="/privacy") Our privacy policy
-                tr
-                    td.text-center
-                        i.fa.fa-balance-scale
-                    td
-                        a(href="/code-of-conduct") Our code of conduct
-                tr
-                    td.text-center
-                        i.fa.fa-university
-                    td
-                        a(href="/academic-honesty") Our academic honesty policy
+
+                // todo Do want to do something like this for DevMountain?
+                //tr
+                //    td.text-center
+                //        i.fa.fa-balance-scale
+                //    td
+                //        a(href="/code-of-conduct") Our code of conduct
+                //tr
+                //    td.text-center
+                //        i.fa.fa-university
+                //    td
+                //        a(href="/academic-honesty") Our academic honesty policy
                 tr
                     td.text-center
                         i.fa.fa-book
                     td
                         a(href="/terms") Our terms of service
-                tr
-                    td.text-center
-                        i.fa.fa-heart
-                    td
-                        a(href="/how-nonprofit-projects-work") How our nonprofit projects work
+
                 tr
                     td.text-center
                         i.fa.fa-video-camera

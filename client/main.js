@@ -1,5 +1,4 @@
 var main = window.main || {};
-
 main.mapShareKey = 'map-shares';
 
 main.ga = window.ga || function() {};
@@ -23,6 +22,7 @@ main = (function(main, global) {
     main.chat.GitterChat = e.detail.Chat;
 
     main.chat.createHelpChat = function(room, helpChatBtnClass, roomTitle) {
+        console.log(room)
       // room is always in PascalCase
       roomTitle = room
         .replace(/([A-Z])/g, ' $1')
@@ -33,7 +33,7 @@ main = (function(main, global) {
       );
 
       main.chat.helpChat = new main.chat.GitterChat({
-        room: `freecodecamp/${room}`,
+        room: `DevMountain/${room}`,
         activationElement: false,
         targetElement: $('#chat-embed-help')
       });
@@ -163,10 +163,64 @@ main.setMapShare = function setMapShare(id) {
   return alreadyShared;
 };
 
+function animateBackgroundOnLoad(){
+    $(".background.big").css('transform', 'translate3D(120px,0,0)');
+    $(".background.small").css('transform', 'translate3D(200px,0,0)');
+    //$(".prinav").css('transform', 'translate3D(-20px,0,0)');
+
+}
+
+function str_obj(str) {
+    str = str.split('; ');
+    var result = {};
+    for (var i = 0; i < str.length; i++) {
+        var cur = str[i].split('=');
+        result[cur[0]] = cur[1];
+    }
+    return result;
+}
+
+function handlePreCourseClick() {
+    var isAuthed = str_obj(document.cookie);
+    console.log($(this))
+
+
+}
+
+function sendGaEvents(data) {
+    // todo send ga events
+    console.log(data)
+}
+
+function changeLocation(url){
+    history.pushState(null,null,window.location.pathname);
+    location.replace(url);
+}
+
+
 $(document).ready(function() {
 
-  const { Observable } = window.Rx;
-  var CSRF_HEADER = 'X-CSRF-Token';
+    // GA and simple routing to handle clicks on home-page
+    if(window.location.pathname === '/') $('.main-map-link').hide();
+
+    $('.check-ga').on('click',function(){
+        var data = $(this).data();
+        if(data.ga === "view-challenges-home-page") {
+            sendGaEvents(data.ga);
+            changeLocation("/map");
+
+        }
+
+    });
+
+    // if Home page animate background
+    if ( window.location.pathname === '/') animateBackgroundOnLoad();
+
+    // Map li if on /map
+    if ( window.location.pathname === '/map') $('#nav-map-btn').hide();
+
+    const { Observable } = window.Rx;
+    var CSRF_HEADER = 'X-CSRF-Token';
 
   var setCSRFToken = function(securityToken) {
     jQuery.ajaxPrefilter(function(options, _, xhr) {
@@ -183,7 +237,7 @@ $(document).ready(function() {
       .unbind('error')
       .attr(
         'src',
-        'https://s3.amazonaws.com/freecodecamp/camper-image-placeholder.png'
+        'http://devmountain.s3.amazonaws.com/www/img/devmtn_logo_fordarkbg.png'
       );
   });
 
@@ -206,6 +260,7 @@ $(document).ready(function() {
       window.username :
       '';
 
+      // todo we will need to update this to our facebook
     var link = 'https://www.facebook.com/dialog/feed?' +
       'app_id=1644598365767721' +
       '&display=page&' +
