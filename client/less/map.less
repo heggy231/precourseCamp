@@ -5,13 +5,12 @@
 
 .map-aside {
     width:500px;
-
+    padding-top: 20px;
     z-index: 20000;
     position: fixed;
     top: 0;
     bottom: 0;
     right: 0;
-
     display: -webkit-flex;
     display: flex;
     -webkit-flex-direction: row;
@@ -19,7 +18,6 @@
     background-color: @body-bg;
     border-left: 1px solid #ddd;
     box-shadow: -12px 0 18px 0 rgba(50, 50, 50, 0.1);
-
     transition: transform 0.3s cubic-bezier(0.16, 0.22, 0.22, 1.7);
 
     &.is-collapsed:not(.is-loading) {
@@ -71,7 +69,7 @@
   left: 0;
   top: 100px;
   @media (max-width: 720px) {
-    padding-top:30px;
+    //padding-top:30px;
   }
   p {
   margin: 5px 0 20px;
@@ -114,11 +112,11 @@
 }
 .input-group-addon {
   width:40px;
-  color: darkgreen;
+  color: @brand-info;
   background: #fff;
-  border-color: darkgreen;
+  border-color: @brand-info;
   &.filled{
-    background: darkgreen;
+    background: @brand-success;
     border-color: #000d00;
     color: #fff;
     cursor: pointer;

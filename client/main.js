@@ -187,13 +187,16 @@ function handlePreCourseClick() {
 }
 
 function sendGaEvents(data) {
+    // todo send ga events
     console.log(data)
 }
 
 function changeLocation(url){
+    history.pushState(null,null,window.location.pathname);
     location.replace(url);
-
 }
+
+
 $(document).ready(function() {
 
     // GA and simple routing to handle clicks on home-page
@@ -209,7 +212,10 @@ $(document).ready(function() {
     });
 
     // if Home page animate background
-    if(challengeName === 'Home') animateBackgroundOnLoad();
+    if ( window.location.pathname === '/') animateBackgroundOnLoad();
+
+    // Map li if on /map
+    if ( window.location.pathname === '/map') $('#nav-map-btn').hide();
 
     const { Observable } = window.Rx;
     var CSRF_HEADER = 'X-CSRF-Token';
