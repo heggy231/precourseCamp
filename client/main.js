@@ -201,6 +201,7 @@ function changeLocation(url){
 $(document).ready(function() {
 
     // GA and simple routing to handle clicks on home-page
+    if(window.location.pathname === '/') $('.main-map-link').hide();
 
     $('.check-ga').on('click',function(){
         var data = $(this).data();
