@@ -22,6 +22,7 @@ main = (function(main, global) {
     main.chat.GitterChat = e.detail.Chat;
 
     main.chat.createHelpChat = function(room, helpChatBtnClass, roomTitle) {
+        console.log(room)
       // room is always in PascalCase
       roomTitle = room
         .replace(/([A-Z])/g, ' $1')
@@ -32,7 +33,7 @@ main = (function(main, global) {
       );
 
       main.chat.helpChat = new main.chat.GitterChat({
-        room: `freecodecamp/${room}`,
+        room: `DevMountain/${room}`,
         activationElement: false,
         targetElement: $('#chat-embed-help')
       });

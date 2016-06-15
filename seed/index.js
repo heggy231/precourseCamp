@@ -23,7 +23,7 @@ destroy()
     var isBeta = !!challengeSpec.isBeta;
     var isComingSoon = !!challengeSpec.isComingSoon;
     var fileName = challengeSpec.fileName;
-    var helpRoom = challengeSpec.helpRoom || 'Help';
+    var helpRoom = 'precourseCamp' || challengeSpec.helpRoom;
 
     console.log('parsed %s successfully', block);
 
