@@ -45,7 +45,7 @@ window.common = (function({ common = { init: [] } }) {
 
       $('#issue-modal').modal('hide');
       window.open(
-        'https://github.com/freecodecamp/freecodecamp/issues/new?&body=' +
+        'https://github.com/DevMountain/precourseCamp/issues/new?&body=' +
           textMessage,
         '_blank'
       );
