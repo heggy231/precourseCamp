@@ -663,7 +663,8 @@ module.exports = function(app) {
       .subscribe(() => {}, next);
   }
 
-  function showMap(showAside, { user }, res, next) {
+  function showMap(showAside, req, res, next) {
+    var user = req.user;
     return Observable.defer(() => {
       if (user && typeof user.getChallengeMap$ === 'function') {
         return user.getChallengeMap$();
@@ -676,7 +677,8 @@ module.exports = function(app) {
           res.render('map/show', {
             superBlocks,
             title: 'A Map to Learn to Code and Become a Software Engineer',
-            showAside
+            showAside,
+            currentChallengeId: req.cookies.currentChallengeId
           });
         },
         next

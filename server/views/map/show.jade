@@ -31,7 +31,7 @@ block content
                           div.margin-left-10(id = "nested-collapse"+challengeBlock.name.replace(/\W/gi, '').split(' ').join('-') class = "collapse in map-collapse no-transition chapterBlock")
                               for challenge in challengeBlock.challenges
                                   if challenge.completed
-                                      p.challenge-title.faded.text-primary.ion-checkmark-circled.padded-ionic-icon.negative-15(name="#{challenge.dashedName}")
+                                      p.challenge-title.faded.text-primary.ion-checkmark-circled.padded-ionic-icon.negative-15(name="#{challenge.dashedName}")(class=challenge.id === currentChallengeId?"currentChallengeId":"")
                                           a(href="#{challenge.url}" target='_parent')
                                               = challenge.title
                                               span.sr-only= " Complete"

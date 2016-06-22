@@ -304,11 +304,8 @@ $(document).ready(function() {
   });
 
   $.each($('.map-collapse'), function(i, div) {
-    if ($(div).find('.manip-hidden').length ===
-        $(div).find('p').length) {
+    if ($(div).find('.currentChallengeId').length === 0 ) {
       collapseBlock(div);
-      $(div).prev('h3').addClass('faded');
-      $(div).prev('h2').addClass('faded');
     }
   });
 
