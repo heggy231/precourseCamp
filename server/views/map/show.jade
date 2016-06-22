@@ -36,7 +36,7 @@ block content
                                               = challenge.title
                                               span.sr-only= " Complete"
                                   else if challenge.isRequired
-                                      p.challenge-title.ion-ios-circle-outline.padded-ionic-icon.negative-15(name="#{challenge.dashedName}")
+                                      p.challenge-title.ion-ios-circle-outline.padded-ionic-icon.negative-15(name="#{challenge.dashedName}")(class=challenge.id === currentChallengeId?"currentChallengeId":"")
                                           a(name="#{challenge.dashedName}" target='_parent' href="#{challenge.url}" class=challenge.isComingSoon ? 'disabled' : '')
                                               span= challenge.title
                                               span.sr-only= " Incomplete"
@@ -51,7 +51,7 @@ block content
                                           span.text-primary &thinsp; &thinsp;
                                               strong *
                                   else
-                                      p.challenge-title.ion-ios-circle-outline.padded-ionic-icon.negative-15(name="#{challenge.dashedName}")
+                                      p.challenge-title.ion-ios-circle-outline.padded-ionic-icon.negative-15(name="#{challenge.dashedName}")(class=challenge.id === currentChallengeId?"currentChallengeId":"")
                                           a(name="#{challenge.dashedName}" target='_parent' href="#{challenge.url}" class=challenge.isComingSoon ? 'disabled' : '')
                                               span= challenge.title
                                               span.sr-only= " Incomplete"
