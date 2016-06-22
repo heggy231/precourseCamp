@@ -306,7 +306,7 @@ $(document).ready(function() {
 
   $.each($('.map-collapse'), function(i, div) {
     if ($(div).find('.currentChallengeId').length === 0 ) {
-     collapseBlock(div);
+      collapseBlock(div);
     }
   });
 
