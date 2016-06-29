@@ -13,16 +13,17 @@ import {
 const passportOptions = {
   emailOptional: true,
   profileToUser(provider, profile) {
-    const emails = profile.emails;
+    const emails = profile.emails || profile.email;
     // NOTE(berks): get email or set to null.
     // MongoDB indexs email but can be sparse(blank)
     const email = emails && emails[0] && emails[0].value ?
       emails[0].value :
       null;
 
-    // create random username
-    // username will be assigned when camper signups for Github
-    const username = 'fcc' + uuid.v4().slice(0, 8);
+
+    // username is the first and last name signed up from devmountain.
+    const username = profile.first_name + ' ' + profile.last_name;
+    // const cohortId = profile.cohortId;
     const password = generateKey('password');
     let userObj = {
       username: username,

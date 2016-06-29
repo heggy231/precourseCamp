@@ -204,10 +204,14 @@ $(document).ready(function() {
 
     $('.check-ga').on('click',function(){
         var data = $(this).data();
-        if(data.ga === "view-challenges-home-page") {
-            sendGaEvents(data.ga);
-            changeLocation("/map");
-
+        sendGaEvents(data.ga);
+        switch(data.ga){
+          case 'view-challenges-home-page':
+            changeLocation('/map');
+            break
+          case 'start-precourse-home-page':
+            changeLocation('/auth/devmtn');
+            break;
         }
 
     });

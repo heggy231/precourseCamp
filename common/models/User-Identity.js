@@ -72,7 +72,7 @@ export default function(UserIdent) {
           loopback.getModelByType(loopback.User);
 
         const userObj = options.profileToUser(provider, profile, options);
-        if (getSocialProvider(provider) !== 'github') {
+        if (getSocialProvider(provider) !== 'devmtn') {
           const err = new Error(createAccountMessage);
           err.userMessage = createAccountMessage;
           err.messageType = 'info';
@@ -89,6 +89,7 @@ export default function(UserIdent) {
         } else {
           query = { username: userObj.username };
         }
+
         return userModel.findOrCreate({ where: query }, userObj)
           .then(([ user ]) => {
             const promises = [

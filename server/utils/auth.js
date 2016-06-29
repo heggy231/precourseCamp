@@ -4,7 +4,8 @@ const providerHash = {
   linkedin({ _json }) {
     return _json && _json.publicProfileUrl || null;
   },
-  google: ({ id }) => id
+  google: ({ id }) => id,
+  devmtn: ({ id }) => id
 };
 
 export function getUsernameFromProvider(provider, profile) {
