@@ -22,7 +22,10 @@ const passportOptions = {
 
 
     // username is the first and last name signed up from devmountain.
-    const username = profile.first_name + ' ' + profile.last_name;
+    const username = profile.first_name[0].toUpperCase() +
+    profile.first_name.slice(1) + ' ' +
+    profile.last_name[0].toUpperCase() +
+    profile.last_name.slice(1);
     // const cohortId = profile.cohortId;
     const password = generateKey('password');
     let userObj = {
