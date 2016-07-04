@@ -131,21 +131,6 @@ export default function(UserIdent) {
       }
 
       const { profile, provider } = userIdent;
-      const picture = getFirstImageFromProfile(profile);
-
-      debug('picture', picture, user.picture);
-      // check if picture was found
-      // check if user has no picture
-      // check if user has default picture
-      // set user.picture from oauth provider
-      if (
-        picture &&
-        (!user.picture || user.picture === defaultProfileImage)
-      ) {
-        debug('setting user picture');
-        user.picture = picture;
-        userChanged = true;
-      }
 
       if (!githubRegex.test(provider) && profile) {
         user[provider] = getUsernameFromProvider(provider, profile);
