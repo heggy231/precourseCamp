@@ -235,15 +235,6 @@ $(document).ready(function() {
 
   setCSRFToken($('meta[name="csrf-token"]').attr('content'));
 
-  $('img').error(function() {
-    $(this)
-      .unbind('error')
-      .attr(
-        'src',
-        'http://devmountain.s3.amazonaws.com/www/img/devmtn_logo_fordarkbg.png'
-      );
-  });
-
   // map sharing
   var alreadyShared = main.getMapShares();
 

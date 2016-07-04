@@ -26,8 +26,7 @@ const passportOptions = {
     profile.first_name.slice(1) + ' ' +
     profile.last_name[0].toUpperCase() +
     profile.last_name.slice(1);
-    profile.picture = "http://devmountain-precoursecamp.s3.amazonaws.com/images/placeholder-img.png"; 
-    // const cohortId = profile.cohortId;
+
     const password = generateKey('password');
     let userObj = {
       username: username,
