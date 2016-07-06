@@ -47,6 +47,7 @@ module.exports = app;
 // in production use `$npm start-production`
 // or `$node server/production` to start the server
 // and wait for DB handshake
+
 if (require.main === module) {
   app.start();
 }

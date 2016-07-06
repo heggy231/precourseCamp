@@ -7,29 +7,7 @@ block content
           .col-xs-12
             a#night-mode.btn.btn-lg.btn-block.btn-primary.btn-link-social Night Mode
         .row
-          .col-xs-12
-              if (!user.isGithubCool)
-                  a.btn.btn-lg.btn-block.btn-github.btn-link-social(href='/link/github')
-                      i.fa.fa-github
-                      | Link my GitHub to unlock my portfolio
-              else
-                  a.btn.btn-lg.btn-block.btn-github.btn-link-social(href='/link/github')
-                      i.fa.fa-github
-                      | Update my portfolio from GitHub
-                  if (!user.twitter)
-                      a.btn.btn-lg.btn-block.btn-twitter.btn-link-social(href='/link/twitter')
-                          i.fa.fa-twitter
-                          | Add my Twitter to my portfolio
-                  if (!user.linkedin)
-                      a.btn.btn-lg.btn-block.btn-linkedin.btn-link-social(href='/link/linkedin')
-                          i.fa.fa-linkedin
-                          | Add my LinkedIn to my portfolio
         .spacer
-        //h2.text-center Account Settings
-        //.row
-        //  .col-xs-12
-        //    a.btn.btn-lg.btn-block.btn-primary.btn-link-social(href='/commit')
-        //        | Edit my pledge
         h2.text-center Privacy Settings
         .row
           .col-xs-12.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3
@@ -44,41 +22,5 @@ block content
               else
                 .col-xs-3
                   a.btn.btn-lg.btn-primary.btn-block.positive-20(href='/toggle-lockdown-mode') Off
-
-        .spacer
-        h2.text-center Email settings
-        if(user.email)
-          .row
-            .col-xs-12
-              p.large-p.text-center
-                em #{user.email}
-            .col-xs-12
-              a.btn.btn-lg.btn-block.btn-primary.btn-link-social(href='/update-email')
-                i.fa.fa-envelope
-                | Update my Email
-          .row
-            .col-xs-12.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3
-
-              .row
-                .col-xs-9
-                  p.large-p Send me notification emails
-                    br
-                    | (these will pertain to your account)
-                if (user.sendNotificationEmail)
-                  .col-xs-3
-                    a.btn.btn-lg.btn-primary.btn-block.active.positive-20(href='/toggle-notification-email-mode') On
-                else
-                  .col-xs-3
-                    a.btn.btn-lg.btn-primary.btn-block.positive-20(href='/toggle-notification-email-mode') Off
-
-        else
-          .row
-            .col-xs-12
-              p.large-p.text-center
-                | You don't have an email id associated to this account.
-            .col-xs-12
-              a.btn.btn-lg.btn-block.btn-primary.btn-link-social(href='/update-email')
-                i.fa.fa-envelope
-                | Update my Email
 
         .spacer
