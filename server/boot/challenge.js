@@ -150,9 +150,6 @@ function getRenderData$(user, challenge$, origChallengeName, solution) {
     })
     .last({ defaultValue: null })
     .flatMap(challenge => {
-      if (challenge && isDev) {
-        return getFromDisk$(challenge);
-      }
       return Observable.just(challenge);
     })
     .flatMap(challenge => {
