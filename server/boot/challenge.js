@@ -242,12 +242,13 @@ function getSuperBlocks$(challenge$, challengeMap) {
       return {
         isBeta,
         isComingSoon,
-        isRequired,
         name: blockArray[0].block,
         superBlock: blockArray[0].superBlock,
         dashedName: dasherize(blockArray[0].block),
         markNew: shouldShowNew(null, blockArray),
         challenges: blockArray,
+        isRequired: blockArray[0].isRequired,
+        isRecommended: blockArray[0].isRecommended,
         completed: completedCount / blockArray.length * 100,
         time: blockArray[0] && blockArray[0].time || '???'
       };
