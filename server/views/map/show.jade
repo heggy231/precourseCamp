@@ -16,7 +16,7 @@ block content
           for superBlock, index in superBlocks
               for challengeBlock in superBlock.blocks
                   h3
-                      a(class=(challengeBlock.isRequired ? "challenge-required" : "")+(challengeBlock.isRecommended ? "challenge-recommended" : ""), data-toggle='collapse', data-parent='#nested', href='#nested-collapse' + challengeBlock.name.replace(/(\W)/gi, '').split(' ').join('-'))
+                      a(class=(challengeBlock.required ? "challenge-required" : "")+(challengeBlock.recommended ? "challenge-recommended" : ""), data-toggle='collapse', data-parent='#nested', href='#nested-collapse' + challengeBlock.name.replace(/(\W)/gi, '').split(' ').join('-'))
                           span.no-link-underline
                               i.fa.fa-caret-down
                           | #{challengeBlock.name}
