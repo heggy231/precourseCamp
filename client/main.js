@@ -216,6 +216,11 @@ $(document).ready(function() {
 
     });
 
+     var mainMap = $('.map-accordion').find('h3');
+        console.log(mainMap)
+    for(var i = 0; i <= 5; i++) {
+       mainMap[i].classList = 'makeRed'
+    }
     // if Home page animate background
     if ( window.location.pathname === '/') animateBackgroundOnLoad();
 

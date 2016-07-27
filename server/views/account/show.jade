@@ -6,10 +6,6 @@ block content
         var challengeName = 'Profile View';
     if (user && user.username === username)
       .row
-        if (!user.isGithubCool)
-          a.btn.btn-lg.btn-block.btn-github.btn-link-social(href='/link/github')
-              i.fa.fa-github
-              | Link my GitHub to unlock my portfolio
         .col-xs-12
             a.btn.btn-lg.btn-block.btn-primary.btn-link-social(href='/settings')
                 | Update your settings
@@ -17,7 +13,7 @@ block content
             a.btn.btn-lg.btn-block.btn-primary.btn-link-social(href='/signout')
                 | Sign me out of Dev Mountain Pre Course
         .col-xs-12
-            a.btn.btn-lg.btn-block.btn-primary.btn-link-social(href='mailto:bencallis1@gmail.com')
+            a.btn.btn-lg.btn-block.btn-primary.btn-link-social(href='mailto:ben@devmounta.in')
                 | Email us
         .spacer
     h1.text-center #{username}'s code portfolio

@@ -242,7 +242,6 @@ function getSuperBlocks$(challenge$, challengeMap) {
       return {
         isBeta,
         isComingSoon,
-        isRequired,
         name: blockArray[0].block,
         superBlock: blockArray[0].superBlock,
         dashedName: dasherize(blockArray[0].block),
