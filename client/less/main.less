@@ -110,6 +110,30 @@ em {
   margin-right: 5px;
 }
 
+
+.challenge-required{
+  color: #d9534f;
+
+  &:focus{
+    color: #d9534f;
+  }
+  &:hover{
+    color: darken(#d9534f,20%);
+  }
+}
+
+.challenge-recommended {
+  color: #FFD933;
+
+  &:focus{
+    color: #FFD933;
+  }
+  &:hover{
+    color: darken(#FFD933,20%);
+  }
+
+}
+
 .fa:hover {
   text-decoration: none;
 }
@@ -858,6 +882,7 @@ div.CodeMirror-scroll {
   line-height: 0.75em;
   margin-top: 10px;
   font-size: 18px;
+  color:@brand-primary;
 }
 
 .story-list {

@@ -16,12 +16,11 @@ block content
           for superBlock, index in superBlocks
               for challengeBlock in superBlock.blocks
                   h3
-                    a(data-toggle='collapse', data-parent='#nested', href='#nested-collapse'+challengeBlock.name.replace(/(\W)/gi, '').split(' ').join('-'))
-                      span.no-link-underline
-                        i.fa.fa-caret-down
-                      | #{challengeBlock.name}
-                    span.challengeBlockTime (#{challengeBlock.time})
-                  div.margin-left-10(id = "nested-collapse"+challengeBlock.name.replace(/\W/gi, '').split(' ').join('-') class = "collapse in map-collapse no-transition chapterBlock")
+                      a(class=(challengeBlock.isRequired ? "challenge-required" : "")+(challengeBlock.isRecommended ? "challenge-recommended" : ""), data-toggle='collapse', data-parent='#nested', href='#nested-collapse' + challengeBlock.name.replace(/(\W)/gi, '').split(' ').join('-'))
+                          span.no-link-underline
+                              i.fa.fa-caret-down
+                          | #{challengeBlock.name}
+                  div.margin-left-10(class= "collapse in map-collapse no-transition chapterBlock",id = "nested-collapse"+challengeBlock.name.replace(/\W/gi, '').split(' ').join('-'))
                       for challenge in challengeBlock.challenges
                           if challenge.completed
                               p.challenge-title.faded.text-primary.ion-checkmark-circled.padded-ionic-icon.negative-15(name="#{challenge.dashedName}", class=challenge.id === currentChallengeId?"currentChallengeId":"")
