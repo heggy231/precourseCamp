@@ -6,6 +6,8 @@ import secrets from '../../config/secrets';
 module.exports = function(app) {
   const router = app.loopback.Router();
   const User = app.models.User;
+  const UserIdentity = app.models.UserIdentity;
+  router.get('/api/simple-scores', simpleScores);
   router.get('/api/github', githubCalls);
   router.get('/chat', chat);
   router.get('/coding-bootcamp-cost-calculator', bootcampCalculator);
@@ -36,6 +38,30 @@ module.exports = function(app) {
   );
 
   app.use(router);
+
+  function simpleScores(req, res) {
+    if (!req.query.ids) {
+      res.status(402).send('Must supply ids');
+    }
+    var ids = req.query.ids.split(',').map(x => x * 1);
+
+    UserIdentity.find({
+      fields: {externalId: true, userId: true},
+      include: {
+        relation: 'user',
+        scope: {
+          fields: ['progressTimestamps']
+        }
+      },
+      where: {externalId: { inq: ids}}, provider: 'devmtn'},
+      function(err, response) {
+      if (err) {
+        console.log(err);
+        return res.status(500).send(err);
+      }
+      return res.send(response);
+    });
+  }
 
   function chat(req, res) {
     res.redirect('https://gitter.im/DevMountain/precourseCamp');
