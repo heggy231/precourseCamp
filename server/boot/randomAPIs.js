@@ -8,8 +8,8 @@ module.exports = function(app) {
   const User = app.models.User;
   const UserIdentity = app.models.UserIdentity;
   const Challenge = app.models.Challenge;
-  router.get('/api/simple-scores', simpleScores);
   router.get('/api/challenge-info', challengeInfo);
+  router.get('/api/simple-scores', simpleScores);
   router.get('/api/github', githubCalls);
   router.get('/chat', chat);
   router.get('/coding-bootcamp-cost-calculator', bootcampCalculator);
@@ -57,6 +57,7 @@ module.exports = function(app) {
       }
       return res.send(response);
     });
+    return true;
   }
 
   function simpleScores(req, res) {
