@@ -7,7 +7,9 @@ module.exports = function(app) {
   const router = app.loopback.Router();
   const User = app.models.User;
   const UserIdentity = app.models.UserIdentity;
+  const Challenge = app.models.Challenge;
   router.get('/api/simple-scores', simpleScores);
+  router.get('/api/challenge-info', challengeInfo);
   router.get('/api/github', githubCalls);
   router.get('/chat', chat);
   router.get('/coding-bootcamp-cost-calculator', bootcampCalculator);
@@ -38,6 +40,24 @@ module.exports = function(app) {
   );
 
   app.use(router);
+
+  function challengeInfo(req, res) {
+    if (!req.query.ids) {
+      res.status(402).send('Must supply challenge ids');
+    }
+    var ids = req.query.ids.split(',').map(x => x * 1);
+
+    Challenge.find({
+      fields: {title: true, block: true, isRecommended: true},
+      where: {_id: { inq: ids}}},
+    function(err, response) {
+      if (err) {
+        console.log(err);
+        res.status(500).send(err);
+      }
+      res.send(response);
+    });
+  }
 
   function simpleScores(req, res) {
     if (!req.query.ids) {
