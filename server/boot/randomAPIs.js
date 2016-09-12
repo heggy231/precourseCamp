@@ -43,9 +43,9 @@ module.exports = function(app) {
 
   function challengeInfo(req, res) {
     if (!req.query.ids) {
-      res.status(402).send('Must supply challenge ids');
+      return res.status(402).send('Must supply challenge ids');
     }
-    var ids = req.query.ids.split(',').map(x => x * 1);
+    var ids = req.query.ids.split(',');
 
     Challenge.find({
       fields: {title: true, block: true, isRecommended: true},
@@ -53,9 +53,9 @@ module.exports = function(app) {
     function(err, response) {
       if (err) {
         console.log(err);
-        res.status(500).send(err);
+        return res.status(500).send(err);
       }
-      res.send(response);
+      return res.send(response);
     });
   }
 
