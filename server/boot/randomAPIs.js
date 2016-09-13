@@ -71,7 +71,7 @@ module.exports = function(app) {
       include: {
         relation: 'user',
         scope: {
-          fields: ['progressTimestamps']
+          fields: ['progressTimestamps', 'username']
         }
       },
       where: {externalId: { inq: ids}}, provider: 'devmtn'},
