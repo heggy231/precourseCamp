@@ -66,6 +66,10 @@
         }
       }
     },
+    "scores": {
+      "type": "Object",
+      "default": {}
+    },
     "bio": {
       "type": "string",
       "default": ""

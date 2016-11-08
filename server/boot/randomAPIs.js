@@ -10,6 +10,7 @@ module.exports = function(app) {
   const Challenge = app.models.Challenge;
   router.get('/api/challenge-info', challengeInfo);
   router.get('/api/simple-scores', simpleScores);
+  router.get('/api/v2/simple-scores', simpleScores2);
   router.get('/api/github', githubCalls);
   router.get('/chat', chat);
   router.get('/coding-bootcamp-cost-calculator', bootcampCalculator);
@@ -72,6 +73,30 @@ module.exports = function(app) {
         relation: 'user',
         scope: {
           fields: ['progressTimestamps', 'username']
+        }
+      },
+      where: {externalId: { inq: ids}}, provider: 'devmtn'},
+      function(err, response) {
+      if (err) {
+        console.log(err);
+        return res.status(500).send(err);
+      }
+      return res.send(response);
+    });
+  }
+
+  function simpleScores2(req, res) {
+    if (!req.query.ids) {
+      res.status(402).send('Must supply ids');
+    }
+    var ids = req.query.ids.split(',').map(x => x * 1);
+
+    UserIdentity.find({
+      fields: {externalId: true, userId: true},
+      include: {
+        relation: 'user',
+        scope: {
+          fields: ['username', 'score']
         }
       },
       where: {externalId: { inq: ids}}, provider: 'devmtn'},

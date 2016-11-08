@@ -11,7 +11,7 @@ var _ = require('lodash'),
 
 var app = loopback();
 var isBeta = !!process.env.BETA;
-
+module.exports = app;
 expressState.extend(app);
 app.set('state namespace', '__fcc__');
 app.set('port', process.env.PORT || 3000);
@@ -41,7 +41,7 @@ app.start = _.once(function() {
   });
 });
 
-module.exports = app;
+
 
 // start the server if `$ node server.js`
 // in production use `$npm start-production`

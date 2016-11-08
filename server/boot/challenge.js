@@ -5,6 +5,7 @@ import { Observable, Scheduler } from 'rx';
 import debug from 'debug';
 import accepts from 'accepts';
 import { isMongoId } from 'validator';
+import summaryCalculation from '../services/summaryCalculation';
 
 import {
   dasherize,
@@ -22,7 +23,7 @@ import {
   flashIfNotVerified
 } from '../utils/middleware';
 
-import getFromDisk$ from '../utils/getFromDisk$';
+// import getFromDisk$ from '../utils/getFromDisk$';
 import badIdMap from '../utils/bad-id-map';
 
 const isDev = process.env.NODE_ENV !== 'production';
@@ -65,7 +66,6 @@ function buildUserUpdate(
   const oldChallenge = challengeMap[challengeId];
   const alreadyCompleted = !!oldChallenge;
 
-
   if (alreadyCompleted) {
     // add data from old challenge
     finalChallenge = {
@@ -99,6 +99,8 @@ function buildUserUpdate(
   }
 
   log('user update data', updateData);
+
+  summaryCalculation(user);
 
   return { alreadyCompleted, updateData };
 }
