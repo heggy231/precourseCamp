@@ -99,8 +99,10 @@ function buildUserUpdate(
   }
 
   log('user update data', updateData);
+  setTimeout(function() {
+    summaryCalculation(user);
+  }, 100);
 
-  summaryCalculation(user);
 
   return { alreadyCompleted, updateData };
 }
