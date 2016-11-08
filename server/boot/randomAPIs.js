@@ -96,7 +96,7 @@ module.exports = function(app) {
       include: {
         relation: 'user',
         scope: {
-          fields: ['username', 'score']
+          fields: ['username', 'scores']
         }
       },
       where: {externalId: { inq: ids}}, provider: 'devmtn'},

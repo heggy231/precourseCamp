@@ -16,7 +16,6 @@ function runOnceToUpdateAllScores() {
 // runOnceToUpdateAllScores();
 
 export default function updateUser(user) {
-  console.log(user);
   setTimeout(()=>{
     User.findById(user.id, {}, (err, user)=> {
       if (err) {
