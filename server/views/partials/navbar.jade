@@ -7,12 +7,24 @@ nav.navbar.navbar-default.navbar-fixed-top.nav-height
             img.img-responsive.nav-logo(src='http://devmtnclass.s3.amazonaws.com/images/devmountain_logo_blacktext.png', alt='learn to code javascript at Dev Mountain Logo')
     .collapse.navbar-collapse
         ul.nav.navbar-nav.navbar-right.hamburger-dropdown
-
+            if !!user
+                li.timeline-report 
+                    a(href='/map') 
+                        span(class=user.class) #{user.status}
+                            if(user.icons)
+                                i(class=user.icons)
+                        div.timeline-details
+                            div.description #{user.message}
+                            each checkpoint in user.checkpoints
+                                div(class="deadline " + checkpoint.class) #{checkpoint.label}
+                                    span.date #{checkpoint.dateString}
+                                        if(checkpoint.icons)
+                                            i(class=checkpoint.icons)
+                            div.description We've broken down our precourse to help you stay on track to come into DevMountain prepared.
             li.hidden-xs.main-map-link
                 a#nav-map-btn(href='/map' onclick='if (!(event.ctrlKey || event.metaKey)) {return false;}')  Map
             li.visible-xs
                 a(href='/map')  Map
-
             if !user
                 li
                     a(href='/auth/devmtn') Sign in

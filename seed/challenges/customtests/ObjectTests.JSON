@@ -1,0 +1,48 @@
+{
+    "_id" : ObjectId("ab6137d4e35944e21037b769"),
+    "name" : "Where's Waldo?",
+    "title" : "Where's Waldo?",
+    "type" : "bonfire",
+    "order" : 8,
+    "suborder" : 6,
+    "checksum" : 4289895597.0,
+    "isBeta" : false,
+    "isComingSoon" : false,
+    "dashedName" : "where-is-waldo",
+    "superBlock" : "Precourse",
+    "superOrder" : 1,
+    "block" : "Basic Algorithm Scripting",
+    "description" : [
+        "Return the provided string with the first letter of each word capitalized. Make sure the rest of the word is in lower case.",
+        "For the purpose of this exercise, you should also capitalize connecting words like \"the\" and \"of\".",
+        ""
+    ],
+    "tests" : [
+        "assert(typeof titleCase(\"I'm a little tea pot\") === \"string\", 'message: <code>titleCase(\"I&#39;m a little tea pot\")</code> should return a string.');",
+        "assert(titleCase(\"I'm a little tea pot\") === \"I'm A Little Tea Pot\", 'message: <code>titleCase(\"I&#39;m a little tea pot\")</code> should return \"I&#39;m A Little Tea Pot\".');",
+        "assert(titleCase(\"sHoRt AnD sToUt\") === \"Short And Stout\", 'message: <code>titleCase(\"sHoRt AnD sToUt\")</code> should return \"Short And Stout\".');",
+        "assert(titleCase(\"HERE IS MY HANDLE HERE IS MY SPOUT\") === \"Here Is My Handle Here Is My Spout\", 'message: <code>titleCase(\"HERE IS MY HANDLE HERE IS MY SPOUT\")</code> should return \"Here Is My Handle Here Is My Spout\".');"
+    ],
+    "head" : [],
+    "tail" : [],
+    "helpRoom" : "HelpJavaScript",
+    "fileName" : "01-front-end-development-certification/basic-bonfires.json",
+    "challengeSeed" : [
+        "function titleCase(str) {",
+        "  return str;",
+        "}",
+        "",
+        "titleCase(\"I'm a little tea pot\");"
+    ],
+    "challengeType" : "5",
+    "MDNlinks" : [
+        "String.split()"
+    ],
+    "solutions" : [
+        "function titleCase(str) {\n  return str.split(' ').map(function(word) {\n    return word.charAt(0).toUpperCase() + word.substring(1).toLowerCase();\n  }).join(' ');\n}\n\ntitleCase(\"I'm a little tea pot\");\n"
+    ],
+    "isRequired" : false,
+    "titleEs" : "Aplica formato de título",
+    "time" : "50 hours",
+    "isRecommended" : false
+}

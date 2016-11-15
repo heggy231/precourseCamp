@@ -513,6 +513,66 @@ thead {
   }
 }
 
+.timeline-report {
+  position:relative;
+  .complete{
+    color:green;
+  }
+  .warning{
+    color:#FFD933;
+  }
+  .danger{
+    color:darken(#d9534f, 10%);
+  }
+  .ok{
+    color:#111;
+  }
+  i{
+    position: relative;
+    top: 2px;
+    left: 4px;
+  }
+}
+.timeline-report:hover {
+  .timeline-details{
+    display:block;
+  }
+}
+
+.timeline-details{
+  display:none;
+  position:absolute;
+  padding: 15px;
+  top:40px;
+  left:-200px;
+  background-color:#eeeeee;
+  font-size:14px;
+  width:400px;
+  text-align: left;
+  .description{
+    font-size: 12px;
+    padding: 5px;
+    color:grey;
+  }
+  .deadline{
+    padding-top: 5px;
+    font-size: 16px;
+    text-align: left;
+    position: relative;
+  }
+
+  .date{
+    position: absolute;
+    left: 160px;
+    font-size: 16px;
+  }
+  i{
+    position: relative;
+    top: 0px;
+    left: 3px;
+  }
+}
+
 .navbar-nav a {
   color: @body-bg;
   font-size: 20px;

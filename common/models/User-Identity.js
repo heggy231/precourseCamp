@@ -1,5 +1,7 @@
 import loopback from 'loopback';
 import debugFactory from 'debug';
+import scoreReporting from '../../server/services/scoreReporting';
+// import app from ''
 
 import {
   setProfileFromGithub,
@@ -16,7 +18,7 @@ export default function(UserIdent) {
   // original source
   // github.com/strongloop/loopback-component-passport
   const createAccountMessage =
-    'Accounts can only be created using GitHub or though email';
+    'Accounts can only be created using DevMountain';
   UserIdent.login = function(
     provider,
     authScheme,
@@ -58,10 +60,13 @@ export default function(UserIdent) {
                 created: new Date(),
                 ttl: user.constructor.settings.ttl
               };
+              user.devmtnCohortId = profile.cohortId;
+              scoreReporting.setUserStartDate(user, profile);
               return user.accessTokens.create(options)
                 .then(token => ({ user, token }));
             })
             .then(({ token, user })=> {
+              user.devmtnCohortId = 15;
               cb(null, user, identity, token);
             })
             .catch(err => cb(err));
