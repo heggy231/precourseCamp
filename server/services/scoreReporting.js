@@ -77,7 +77,7 @@ module.exports = {
       user.icons = 'fa fa-exclamation-triangle';
     } else if (user.warning) {
       user.status = 'Slightly behind';
-      user.message = 'You are running a little behind to be ready by the ' + formatDate(user.dateStart) + '.  Make sure to spend a bit more time this week to get caught up.';
+      user.message = 'You are running a little behind to be ready by ' + formatDate(user.dateStart) + '.  Make sure to spend a bit more time this week to get caught up.';
       user.class = 'warning';
       user.icons = 'fa fa-exclamation-triangle';
     }
