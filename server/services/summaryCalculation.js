@@ -51,7 +51,7 @@ function asynForEach(arr, i, func) {
 // asynForEach(items, 0, someAsyncFunc);
 
 
-runOnceToUpdateAllScores();
+// runOnceToUpdateAllScores();
 
 export default function updateUser(user, done) {
   User.findById(user.id, {}, (err, user)=> {

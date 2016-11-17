@@ -22,7 +22,6 @@ main = (function(main, global) {
     main.chat.GitterChat = e.detail.Chat;
 
     main.chat.createHelpChat = function(room, helpChatBtnClass, roomTitle) {
-        console.log(room)
       // room is always in PascalCase
       roomTitle = room
         .replace(/([A-Z])/g, ' $1')
@@ -163,10 +162,10 @@ main.setMapShare = function setMapShare(id) {
   return alreadyShared;
 };
 
-function animateBackgroundOnLoad(){
-    $(".background.big").css('transform', 'translate3D(120px,0,0)');
-    $(".background.small").css('transform', 'translate3D(200px,0,0)');
-    //$(".prinav").css('transform', 'translate3D(-20px,0,0)');
+function animateBackgroundOnLoad() {
+    $('.background.big').css('transform', 'translate3D(120px,0,0)');
+    $('.background.small').css('transform', 'translate3D(200px,0,0)');
+    // $(".prinav").css('transform', 'translate3D(-20px,0,0)');
 
 }
 
@@ -182,18 +181,14 @@ function str_obj(str) {
 
 function handlePreCourseClick() {
     var isAuthed = str_obj(document.cookie);
-    console.log($(this))
-
-
 }
 
 function sendGaEvents(data) {
     // todo send ga events
-    console.log(data)
 }
 
-function changeLocation(url){
-    history.pushState(null,null,window.location.pathname);
+function changeLocation(url) {
+    history.pushState(null, null, window.location.pathname);
     location.replace(url);
 }
 
@@ -202,13 +197,13 @@ $(document).ready(function() {
 
     // GA and simple routing to handle clicks on home-page
 
-    $('.check-ga').on('click',function(){
+    $('.check-ga').on('click', function() {
         var data = $(this).data();
         sendGaEvents(data.ga);
-        switch(data.ga){
+        switch (data.ga) {
           case 'view-challenges-home-page':
             changeLocation('/map');
-            break
+            break;
           case 'start-precourse-home-page':
             changeLocation('/auth/devmtn');
             break;

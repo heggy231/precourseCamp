@@ -78,6 +78,13 @@
       "type": "string",
       "default": ""
     },
+    "devmtnCohortId": {
+      "type": "string",
+      "default": ""
+    },
+    "dateStart":{
+      "type": "date"
+    },
     "gender": {
       "type": "string",
       "default": ""
