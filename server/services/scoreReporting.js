@@ -44,6 +44,19 @@ module.exports = {
   checkUser: function checkUser(user) {
     if (!maxScores) maxScores = scoreReporting.localMaxScore();
     var setions = ['JavaScipt Part 1', 'JavaScipt Part 2', 'JavaScipt Part 3', 'HTML5 and CSS', 'jQuery'];
+
+    if (!user.dateStart) {
+      user.status = 'Applying';
+      user.class = 'completed';
+      user.message = 'In order to finish your application process for DevMountain, complete JavaScript Part 1.';
+      user.checkpoints = [{
+        label: 'JavaScript Part 1',
+        status: 'danger',
+        icons: 'fa fa-exclamation-triangle'
+      }];
+      return;
+    }
+
     user.completed = 0;
 
     user.checkpoints = checkpoints.map(checkCheckpoint.bind(null, user));
@@ -82,18 +95,12 @@ module.exports = {
     if (!devMtnProfile.cohortId) {return;}
     axios.get('https://devmountain.com/api/classsession/' +
     devMtnProfile.cohortId)
-    // TODORemove later
-    .catch((err) => {
-      return {data: {date_start: '2016-11-14T04:00:00.000Z', err: err}};
-    })
     .then(function(response) {
       var startDate;
       if (!user.dateStart &&
          (!response ||
           !response.data ||
           !response.data.date_start)) {
-        // TODO Don't do this nonsense once I get it working.  But till then wor
-        startDate = new Date('2016-11-14T04:00:00.000Z');
       } else {
         startDate = new Date(response.data.date_start || user.dateStart);
       }
@@ -130,8 +137,14 @@ function formatDate(date, days) {
 
 function checkCheckpoint(user, i) {
   // Calculate date in question
-    var day = new Date(user.dateStart.getTime() -
-        i.days * 1000 * 60 * 60 * 24);
+  var day;
+  if (!user.dateStart) {
+    day = new Date();
+  } else {
+    day = new Date(user.dateStart.getTime() -
+       i.days * 1000 * 60 * 60 * 24);
+  }
+
   // Setup the basic result that all share.
     var result = {
       label: i.label,
@@ -161,14 +174,3 @@ function checkCheckpoint(user, i) {
       return result;
     }
 }
-
-
-// setTimeout(()=>{
-//   User.find({}, function(err, response) {
-//     if (err) {
-//       return console.log(err);
-//     }
-//       module.exports.setUserStartDate(response[0], {cohortId: 69});
-//   });
-//
-// }, 1000);
