@@ -2,6 +2,7 @@ import request from 'request';
 import constantStrings from '../utils/constantStrings.json';
 import testimonials from '../resources/testimonials.json';
 import secrets from '../../config/secrets';
+import scoreReporting from '../services/scoreReporting';
 
 module.exports = function(app) {
   const router = app.loopback.Router();
@@ -11,6 +12,7 @@ module.exports = function(app) {
   router.get('/api/challenge-info', challengeInfo);
   router.get('/api/simple-scores', simpleScores);
   router.get('/api/v2/simple-scores', simpleScores2);
+  router.get('/api/v2/max-scores', scoreReporting.getMaxScores);
   router.get('/api/github', githubCalls);
   router.get('/chat', chat);
   router.get('/coding-bootcamp-cost-calculator', bootcampCalculator);
